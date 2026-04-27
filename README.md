@@ -3,8 +3,7 @@
 ## 📋 Table of Contents
 
 - [Computed Property vs Lazy Variable](#computed-property-vs-lazy-variable)
-- [Closures](#closures)
-- [Protocols](#protocols)
+- [Closures](#what-are-the-closures-in-swift)
 - [Struct vs Class](#struct-vs-class)
 - [Heap vs Stack](#heap-vs-stack)
 - [UIKit Lifecycle](#uikit-lifecycle)
@@ -103,9 +102,77 @@ After first access
 ###  Can a lazy property be a constant (let)? 
 No must be var, as the value will change run time we have to define it as var 
 
-## Closures
+## What are the closures in swift?
 
 closures are self contain block of code that can be pass around as functiona paramter.
+
+
+
+### Question related to this: 
+###  What does it mean self contain block of functionality?
+###  How it can be passed around?
+
+-------------------------------------------------------------------------------------------------------------------------------------
+###  Difference between escaping and non-escaping closures? 
+- By default all closures are non-escaping
+- For escaping closure we have keyword @escaping and we need to insert before closure.
+- escaping closure will stay in memory even after function body get executed, its helpful when function depends on outside response.
+- for async calls we have to use the @escaping
+- 
+
+
+
+-------------------------------------------------------------------------------------------------------------------------------------
+###  How closures are different than function? 
+- function has name but closure does't 
+- 
+
+
+-------------------------------------------------------------------------------------------------------------------------------------
+###  Why even we need closure what are the alternative ?
+- yes, closure basically a mechanism to return call back, to alternative for this is to we can achieve through protocols, notificatoin center, etc.
+
+
+-------------------------------------------------------------------------------------------------------------------------------------
+###  What is a retain cycle in closures?
+Retain cycle happens when two refrence object point to each other in strong manner, in closure when we use object inside closure in strong way it hold it that can create the retain cycle, to avoid this we can use the weak and unowned refernce of self.
+
+-------------------------------------------------------------------------------------------------------------------------------------
+###  What is trailing closures ?
+When a closure is the last parameter of a function, you can write it outside the parentheses.that means when we can omit the parameter name, basically swift facalitate developers to write cleand code thats why trailing closures exist.
+
+```Swift
+func perform(action: () -> Void) {
+    action()
+}
+
+// Without trailing closure 
+perform(action: {
+    print("Hello")
+})
+
+// With trailing closure
+perform {
+    print("Hello")
+}
+```
+
+###  What if a function has more than one argument of closures ?
+well, in that case the first closure will be the trailing and after that will be with name.
+
+```Swift
+func fetchData(success: () -> Void,failure: () -> Void) {
+
+}
+
+fetchData {
+    print("Success")
+} failure: {
+    print("Error")
+}
+```
+-------------------------------------------------------------------------------------------------------------------------------------
+
 
 ## Protocols
 
