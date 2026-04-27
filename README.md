@@ -5,7 +5,7 @@
 - [Computed Property vs Lazy Variable](#computed-property-vs-lazy-variable)
 - [Closures](#what-are-the-closures-in-swift)
 - [Struct vs Class](#struct-vs-class)
-- [Heap vs Stack](#heap-vs-stack)
+- [Stack vs Heap Memory](#stack-vs-heap)
 - [UIKit Lifecycle](#uikit-lifecycle)
 - [GCD](#gcd)
 - [Async/Await](#asyncawait)
@@ -179,7 +179,20 @@ fetchData {
 
 ## Struct vs Class
 
-## Heap vs Stack
+## Stack vs Heap Memory
+
+Stack memory is a sort of memory allocation that the OS continuously manages and uses to store local variables in a LIFO order. On the other hand, heap memory is a type of dynamic memory allocation used for storing objects and data structures that require a longer lifespan than stack memory.
+
+| Stack Memory | Heap Memory |
+|-------------|------------|
+| Stores temporary data used by functions and procedures | Stores data not tied to a specific function or procedure |
+| Follows LIFO (Last In First Out) structure | No specific structure |
+| Automatically allocated and deallocated | Dynamically allocated and deallocated at runtime |
+| Limited and fixed in size | Can grow and shrink dynamically |
+| Easy to manage | More complex to manage |
+| Faster access | Slower access compared to stack |
+| Used for small, short-lived data | Used for large, complex data structures |
+| Typically used by `structs` | Typically used by `classes` |
 
 ## UIKit Lifecycle
 
