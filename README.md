@@ -98,9 +98,8 @@ After first access
 [1, 2, 3]
 ```
 
-### Question related to this: 
-###  What are the memory implications of lazy vs computed properties?
-###  Can a lazy property be a constant (let)? 
+####  What are the memory implications of lazy vs computed properties?
+####  Can a lazy property be a constant (let)? 
 No must be var, as the value will change run time we have to define it as var 
 
 ## What are the closures in swift?
@@ -108,38 +107,105 @@ No must be var, as the value will change run time we have to define it as var
 closures are self contain block of code that can be pass around as functiona paramter.
 
 
-
-### Question related to this: 
-###  What does it mean self contain block of functionality?
-###  How it can be passed around?
+####  What does it mean self contain block of functionality?
+####  How it can be passed around?
 
 -------------------------------------------------------------------------------------------------------------------------------------
-###  Difference between escaping and non-escaping closures? 
+####  Difference between escaping and non-escaping closures? 
 - By default all closures are non-escaping
 - For escaping closure we have keyword @escaping and we need to insert before closure.
 - escaping closure will stay in memory even after function body get executed, its helpful when function depends on outside response.
 - for async calls we have to use the @escaping
 - 
 
+#### What exactly does ‘capturing values’ mean?
 
+When you use variables inside a closure, Swift captures those variables from the surrounding scope and holds onto them.
 
+```swift
+// capturing values in action.
+func makeCounter() -> () -> Int {
+    var count = 0
+    return {
+        count += 1
+        return count
+    }
+}
+
+let counter = makeCounter()
+print(counter()) // 1
+print(counter()) // 2
+```
+- count is a local variable inside makeCounter function.
+- The closure captures count and keeps it alive even after the function returns.
+- That’s why calling counter() still increments the same count.
+
+#### How do closures cause memory leaks
+
+```swift
+class ViewController: UIViewController {
+    var name = "Profile Screen"
+    
+    func loadData() {
+        fetchData {
+            return "Loaded for \(self.name)"
+        }
+    }
+    
+    func fetchData(completion: @escaping () -> String) {
+        let result = completion()
+        print(result)
+    }
+    
+    deinit {
+        print("ViewController deallocated")
+    }
+}
+```
+- Here, the closure captures self (the view controller). If self also holds a reference to the closure, boom → retain cycle → memory leak.
+- To avoid the memroy leaks we can use self as weak or unowned.
+
+#### Why do I need [weak self] inside closures?
+
+- To avoid the memory leaks
+- Use [weak self] or [unowned self] to break cycles.
+- Use weak, unless you’re 100% sure self won’t be nil
+
+```swift
+// weak
+- weak means the closure doesn’t own self.
+- If self is gone, it becomes nil
+
+fetchData { [weak self] in
+    print("Loaded for \(self.name)")
+}
+
+// unowned
+- unowned means no ownership, but never optional.
+- Use when you’re sure self will outlive the closure.
+- Using unowned incorrectly → crash if self is gone
+
+fetchData { [unowned self] in
+    print("Loaded for \(self.name)")
+}
+```
 -------------------------------------------------------------------------------------------------------------------------------------
-###  How closures are different than function? 
+####  How closures are different than function? 
 - function has name but closure does't 
 - 
 
 
 -------------------------------------------------------------------------------------------------------------------------------------
-###  Why even we need closure what are the alternative ?
+####  Why even we need closure what are the alternative ?
 - yes, closure basically a mechanism to return call back, to alternative for this is to we can achieve through protocols, notificatoin center, etc.
 
 
 -------------------------------------------------------------------------------------------------------------------------------------
-###  What is a retain cycle in closures?
+####  What is a retain cycle in closures?
 Retain cycle happens when two refrence object point to each other in strong manner, in closure when we use object inside closure in strong way it hold it that can create the retain cycle, to avoid this we can use the weak and unowned refernce of self.
 
 -------------------------------------------------------------------------------------------------------------------------------------
-###  What is trailing closures ?
+####  What is trailing closures ?
 When a closure is the last parameter of a function, you can write it outside the parentheses.that means when we can omit the parameter name, basically swift facalitate developers to write cleand code thats why trailing closures exist.
 
 ```Swift
@@ -158,7 +224,7 @@ perform {
 }
 ```
 
-###  What if a function has more than one argument of closures ?
+####  What if a function has more than one argument of closures ?
 well, in that case the first closure will be the trailing and after that will be with name.
 
 ```Swift
@@ -184,7 +250,7 @@ fetchData {
 
 Stack memory is a sort of memory allocation that the OS continuously manages and uses to store local variables in a LIFO order. On the other hand, heap memory is a type of dynamic memory allocation used for storing objects and data structures that require a longer lifespan than stack memory.
 
-### Heap
+#### Heap
 
 - Heap is dynamic memory allocation and deallocation system for storing reference types
 - Its allocate memory on run time.
@@ -193,7 +259,7 @@ Stack memory is a sort of memory allocation that the OS continuously manages and
 - Closures and captured variables are also store on heap, especailly @escaping closures.
 - Global Access: Heap memory can be accessed globally, making it suitable for storing data that needs to be accessed throughout the application
 
-### Stack
+#### Stack
 
 - Stack is static memory allocation system manage in LIFO fashion 
 - Its faster then heap 
