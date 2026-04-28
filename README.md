@@ -15,7 +15,7 @@
 - [Testing](#testing)
 - [Security](#security)
 - [Modularization](#modularization)
-- [Copy On Write (COW)](opy-on-write-cow)
+- [Copy On Write (COW)](#copy-on-write-cow)
 
 
 ## Computed property VS Lazy variable
