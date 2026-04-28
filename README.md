@@ -104,11 +104,46 @@ No must be var, as the value will change run time we have to define it as var
 
 ## What are the closures in swift?
 
-closures are self contain block of code that can be pass around as functiona paramter.
+closures are self contain block of code that can be pass around, in other words Closures are like functions without names that you can assign to variables, pass into functions, or return from functions.
 
+```swift
+// Closure = “block of code you can store” example
+// no name (unlike a function)
+// stored in a variable
+// can be called later
+let greet = {
+    print("Hello")
+}
 
-####  What does it mean self contain block of functionality?
-####  How it can be passed around?
+greet() // Hello
+
+// “Self-contained block of code” example
+// it has input, logic, output just like a function, but no name
+let add = { (a: Int, b: Int) -> Int in
+    return a + b
+}
+
+print(add(2, 3)) // 5
+
+// “Pass into a function” example
+func performAction(action: () -> Void) {
+    action()
+}
+
+performAction {
+    print("Button tapped")
+}
+
+// “Return from a function”
+func makeGreeter() -> () -> String {
+    return {
+        return "Hello!"
+    }
+}
+
+let greeter = makeGreeter()
+print(greeter()) // Hello!
+```
 
 -------------------------------------------------------------------------------------------------------------------------------------
 ####  Difference between escaping and non-escaping closures? 
@@ -141,6 +176,7 @@ print(counter()) // 2
 - That’s why calling counter() still increments the same count.
 
 #### How do closures cause memory leaks
+Retain cycle happens when two refrence object point to each other in strong manner, in closure when we use object inside closure in strong way it hold it that can create the retain cycle, to avoid this we can use the weak and unowned refernce of self.
 
 ```swift
 class ViewController: UIViewController {
@@ -198,11 +234,6 @@ fetchData { [unowned self] in
 -------------------------------------------------------------------------------------------------------------------------------------
 ####  Why even we need closure what are the alternative ?
 - yes, closure basically a mechanism to return call back, to alternative for this is to we can achieve through protocols, notificatoin center, etc.
-
-
--------------------------------------------------------------------------------------------------------------------------------------
-####  What is a retain cycle in closures?
-Retain cycle happens when two refrence object point to each other in strong manner, in closure when we use object inside closure in strong way it hold it that can create the retain cycle, to avoid this we can use the weak and unowned refernce of self.
 
 -------------------------------------------------------------------------------------------------------------------------------------
 ####  What is trailing closures ?
