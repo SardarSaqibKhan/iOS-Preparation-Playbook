@@ -15,6 +15,7 @@
 - [Testing](#testing)
 - [Security](#security)
 - [Modularization](#modularization)
+- [Copy On Write (COW)](opy-on-write-cow)
 
 
 ## Computed property VS Lazy variable
@@ -222,3 +223,5 @@ Stack memory is a sort of memory allocation that the OS continuously manages and
 ## Security
 
 ## Modularization
+
+## Copy On Write (COW)
