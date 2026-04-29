@@ -3,6 +3,8 @@
 ## 📋 Table of Contents
 
 - [Computed Property vs Lazy Variable](<Computed Property vs Lazy Variable/README.md>)
+  - [Computed Property](<Computed Property vs Lazy Variable/README.md#computed-property>)
+  - [Lazy Property](<Computed Property vs Lazy Variable/README.md#lazy-property>)
 - [Closures](Closures/README.md)
 - [Struct vs Class](#struct-vs-class)
 - [Stack vs Heap Memory](<Stack vs Heap Memory/README.md>)
