@@ -5,7 +5,7 @@
 - [Computed Property vs Lazy Variable](#computed-property-vs-lazy-variable)
 - [Closures](#what-are-the-closures-in-swift)
 - [Struct vs Class](#struct-vs-class)
-- [Stack vs Heap Memory](#stack-vs-heap-memory)
+- [Stack vs Heap Memory](Stack vs Heap Memory/README.md)
 - [UIKit Lifecycle](#uikit-lifecycle)
 - [GCD](#gcd)
 - [Async/Await](#asyncawait)
