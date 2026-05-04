@@ -42,7 +42,7 @@ func addNumbers(a: Int, b: Int) -> Int {
 
 let result = addNumbers(a: 5, b: 3)
 ```
-<img width="756" height="386" alt="Untitled Diagram drawio" src="https://github.com/user-attachments/assets/d2a6ab6e-890a-41e8-a5f4-2d9b9b0b5820" />
+<img width="756" height="386" alt="aqusuj" src="https://github.com/user-attachments/assets/4178ec9d-b7c4-47ad-a0b1-4ce25233bf17" />
 
 
 
