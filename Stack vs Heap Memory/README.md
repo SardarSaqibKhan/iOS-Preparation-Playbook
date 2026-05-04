@@ -19,6 +19,7 @@ Stack memory is a sort of memory allocation that the OS continuously manages and
 - The stack keeps track of method calls and the corresponding execution flow
 - All local variables of function are stored in stack.
 - The size of stack is fixed and its determined on compile time.
+- We may encountered with stack overflow in stack memory.
   
 | Stack Memory | Heap Memory |
 |-------------|------------|
