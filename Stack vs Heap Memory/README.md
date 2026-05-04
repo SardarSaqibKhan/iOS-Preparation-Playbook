@@ -31,3 +31,20 @@ Stack memory is a sort of memory allocation that the OS continuously manages and
 | Faster access | Slower access compared to stack |
 | Used for small, short-lived data | Used for large, complex data structures |
 | Typically used by `structs` | Typically used by `classes` |
+
+
+#### Stack Memory Demo
+```swift
+func addNumbers(a: Int, b: Int) -> Int {
+    let sum = a + b
+    return sum
+}
+
+let result = addNumbers(a: 5, b: 3)
+```
+<img width="756" height="386" alt="Untitled Diagram drawio" src="https://github.com/user-attachments/assets/d2a6ab6e-890a-41e8-a5f4-2d9b9b0b5820" />
+
+
+
+
+
