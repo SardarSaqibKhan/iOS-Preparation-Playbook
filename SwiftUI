@@ -1,0 +1,77 @@
+# SwiftUI Interview Questions
+
+1. What is SwiftUI, and how is it different from UIKit?
+2. What does declarative UI mean in SwiftUI?
+3. What is a View in SwiftUI?
+4. Why is View a protocol, and why are SwiftUI views structs?
+5. What is body and when is it executed?
+6. Does SwiftUI recreate a View when its state changes?
+7. How does SwiftUI know when a View needs to update?
+8. What is @State and when should you use it?
+9. What is @Binding and why do we need it?
+10. What is the difference between @State and @Binding?
+11. What is @StateObject vs @ObservedObject?
+12. What is @EnvironmentObject?
+13. What is @Environment used for?
+14. What does "single source of truth" mean in SwiftUI?
+15. What is @Observable and how is it different from ObservableObject?
+
+16. What is structural identity in SwiftUI?
+17. What is explicit identity?
+18. What does .id() actually do?
+19. What is the difference between structural identity and explicit identity?
+20. How does identity affect animations?
+21. How does SwiftUI diff views?
+22. Why can body be called multiple times?
+23. Why shouldn't you perform expensive work inside body?
+24. What happens internally when @State changes?
+25. What causes SwiftUI to invalidate a View?
+26. What is the difference between View invalidation and View rendering?
+27. Why are SwiftUI views value types?
+28. If SwiftUI views are structs, how can @State persist between updates?
+29. Why does SwiftUI sometimes appear to recreate a View?
+30. What happens to state when a View's identity changes?
+
+31. Why is stable identity important in ForEach?
+32. What happens if IDs in a ForEach aren't unique?
+33. ForEach with Identifiable vs ForEach(0..<count)?
+34. Why can changing an item's ID cause its state to reset?
+35. Why can a List behave strangely when using unstable IDs?
+36. List vs LazyVStack — what's the difference?
+37. When would you use LazyVStack instead of VStack?
+38. How would you optimize a SwiftUI list with thousands of items?
+
+39. How does SwiftUI's layout system work?
+40. Explain the proposal → measurement → placement process.
+41. What does GeometryReader actually do?
+42. Why can GeometryReader cause unexpected layouts?
+43. What does layoutPriority do?
+44. What is the difference between frame(), fixedSize(), and layoutPriority()?
+45. How does Spacer affect layout?
+46. How do alignment guides work?
+47. When would you create a custom Layout?
+
+48. What is the difference between implicit and explicit animations?
+49. What is the difference between .animation() and withAnimation()?
+50. What is a Transition?
+51. Why doesn't a transition sometimes run?
+52. How does identity affect transitions?
+53. What is matchedGeometryEffect?
+54. What is a Transaction in SwiftUI?
+
+55. How does NavigationStack work?
+56. NavigationStack vs the old NavigationView?
+57. What is NavigationPath?
+58. How would you implement programmatic navigation?
+59. How would you handle deep linking with NavigationStack?
+60. How do .sheet() and .fullScreenCover() manage presentation state?
+61. How would you pass data back from a presented SwiftUI view?
+
+62. How would you debug a slow SwiftUI screen?
+63. What causes unnecessary SwiftUI updates?
+64. How can an expensive body affect performance?
+65. What is AnyView, and why can excessive type erasure be problematic?
+66. When would you use EquatableView / .equatable()?
+67. How would you optimize a complex ForEach?
+68. How would you diagnose excessive CPU usage in SwiftUI?
+69. How would you diagnose memory issues in a SwiftUI application?
